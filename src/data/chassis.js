@@ -8,7 +8,7 @@ export const Chassis = [
         velocidade: 3,
         carapaça: 3, 
         dano: 3,
-        bateria: 3
+        bateria: 5
     },
     {   
         value: 'shooter',
