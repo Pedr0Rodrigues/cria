@@ -6,7 +6,7 @@ export const Chassis = [
         durabilidade: 14,
         mira: 3,
         velocidade: 3,
-        carapaça: 3, 
+        carapaca: 3, 
         dano: 3,
         bateria: 5
     },
@@ -17,7 +17,7 @@ export const Chassis = [
         durabilidade: 11,
         mira: 4,
         velocidade: 3,
-        carapaça: 1,
+        carapaca: 1,
         dano: 3,
         bateria: 6
     },
@@ -28,7 +28,7 @@ export const Chassis = [
         durabilidade: 15,
         mira: 4,
         velocidade: 3,
-        carapaça: 3,
+        carapaca: 3,
         dano: 2,
         bateria: 5
     },
@@ -39,7 +39,7 @@ export const Chassis = [
         durabilidade: 13,
         mira: 3,
         velocidade: 3,
-        carapaça: 3,
+        carapaca: 3,
         dano: 1,
         bateria: 6
     },
