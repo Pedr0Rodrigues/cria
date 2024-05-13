@@ -29,4 +29,4 @@ export const Personalidades = [
         nome: 'Cuidadosos', 
         descricao: 'Crias da natureza protetora são como irmãos mais velhos, preocupados e defensores. Recebem +1 Carapaça e -1 Durabilidade.' 
     }
-];
+]
