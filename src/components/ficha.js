@@ -13,14 +13,11 @@ function Ficha() {
     const [tipo, setTipo] = useState('');
     const [personalidade, setPersonalidade] = useState('');
 
-    // Função para definir os valores dos campos numéricos com base no chassi selecionado
-    const definirValoresDoChassi = (chassiSelecionado) => {
-        // Encontra o chassi correspondente ao valor selecionado
+    const definirValoresDoChassi = (chassiSelecionado, personalidadeSelecionada) => {
         const chassiAtual = Chassis.find(chassi => chassi.value === chassiSelecionado);
         
-        // Se o chassi correspondente for encontrado, retorna os valores dos atributos
         if (chassiAtual) {
-            return {
+            let valoresAtributos = {
                 durabilidade: chassiAtual.durabilidade,
                 dano: chassiAtual.dano,
                 mira: chassiAtual.mira,
@@ -28,8 +25,34 @@ function Ficha() {
                 carapaca: chassiAtual.carapaca,
                 bateria: chassiAtual.bateria
             };
+
+            switch (personalidadeSelecionada) {
+                case 'astuto':
+                    valoresAtributos.mira += 1;
+                    valoresAtributos.carapaca -= 1;
+                    break;
+                case 'bruto':
+                    valoresAtributos.dano += 1;
+                    valoresAtributos.mira -= 1;
+                    break;
+                case 'calmo':
+                    valoresAtributos.bateria += 1;
+                    valoresAtributos.velocidade -= 1;
+                    break;
+                case 'timido':
+                    valoresAtributos.velocidade += 1;
+                    valoresAtributos.dano -= 1;
+                    break;
+                case 'cuidadoso':
+                    valoresAtributos.carapaca += 1;
+                    valoresAtributos.durabilidade -= 1;
+                    break;
+                default:
+                    break;
+            }
+
+            return valoresAtributos;
         } else {
-            // Se nenhum chassi correspondente for encontrado, retorna valores padrão (0)
             return {
                 durabilidade: 0,
                 dano: 0,
@@ -52,7 +75,13 @@ function Ficha() {
 
     const handleChassiChange = (novoChassi) => {
         setChassi(novoChassi);
-        const valoresAtualizados = definirValoresDoChassi(novoChassi);
+        const valoresAtualizados = definirValoresDoChassi(novoChassi, personalidade);
+        setValoresCamposNumericos(valoresAtualizados);
+    };
+
+    const handlePersonalidadeChange = (novaPersonalidade) => {
+        setPersonalidade(novaPersonalidade);
+        const valoresAtualizados = definirValoresDoChassi(chassi, novaPersonalidade);
         setValoresCamposNumericos(valoresAtualizados);
     };
 
@@ -62,7 +91,7 @@ function Ficha() {
             <CampoTexto label="Nome:" value={nome} onChange={setNome} />
             <SelecionarChassi label="Chassi:" options={Chassis} value={chassi} onChange={handleChassiChange} />
             <SelecionarTipo label="Tipo:" options={Tipos} value={tipo} onChange={setTipo} />
-            <SelecionarPersonalidade label="Personalidade:" options={Personalidades} value={personalidade} onChange={setPersonalidade} />
+            <SelecionarPersonalidade label="Personalidade:" options={Personalidades} value={personalidade} onChange={handlePersonalidadeChange} />
             <div>
                 <label>Durabilidade:</label>
                 <input type="number" value={valoresCamposNumericos.durabilidade} readOnly />
