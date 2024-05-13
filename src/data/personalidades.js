@@ -15,7 +15,7 @@ export const Personalidades = [
         descricao: 'Crias de natureza calma são pacientes e mantêm o foco mesmo sob pressão. Possuem +1 Bateria e -1 Velocidade.' 
     },
     { 
-        value: 'tímido', 
+        value: 'timido', 
         nome: 'Tímido', 
         descricao: 'Crias de natureza tímida falam pouco e não gostam de ser o centro das atenções. Recebem +1 Velocidade e -1 Dano.' 
     },
@@ -25,8 +25,8 @@ export const Personalidades = [
         descricao: 'Crias de natureza humilde são humildões. Não gostam de se sobressair nem de ficarem para trás. Não recebem nem perdem nada.' 
     },
     { 
-        value: 'cuidadosos', 
-        nome: 'Cuidadosos', 
+        value: 'cuidadoso', 
+        nome: 'Cuidadoso', 
         descricao: 'Crias da natureza protetora são como irmãos mais velhos, preocupados e defensores. Recebem +1 Carapaça e -1 Durabilidade.' 
     }
 ]
