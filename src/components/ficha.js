@@ -89,9 +89,10 @@ function Ficha() {
         <div>
             <h2>Ficha de Cria</h2>
             <CampoTexto label="Nome:" value={nome} onChange={setNome} />
-            <SelecionarChassi label="Chassi:" options={Chassis} value={chassi} onChange={handleChassiChange} />
-            <SelecionarTipo label="Tipo:" options={Tipos} value={tipo} onChange={setTipo} />
-            <SelecionarPersonalidade label="Personalidade:" options={Personalidades} value={personalidade} onChange={handlePersonalidadeChange} />
+            <SelecionarChassi label="Chassi:" options={[{ value: '', nome: '-- Selecione --' }, ...Chassis]} value={chassi} onChange={handleChassiChange} />
+            <SelecionarTipo label="Tipo:" options={[{ value: '', nome: '-- Selecione --' }, ...Tipos]} value={tipo} onChange={setTipo} />
+            <SelecionarPersonalidade label="Personalidade:" options={[{ value: '', nome: '-- Selecione --' }, ...Personalidades]} value={personalidade} onChange={handlePersonalidadeChange} />
+
             <div>
                 <label>Durabilidade:</label>
                 <input type="number" value={valoresCamposNumericos.durabilidade} readOnly />
